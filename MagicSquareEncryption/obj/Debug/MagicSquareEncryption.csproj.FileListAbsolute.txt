@@ -1,0 +1,6 @@
+D:\Serious Projects\Cryptography\MagicSquareEncryption\bin\Debug\MagicSquareEncryption.exe.config
+D:\Serious Projects\Cryptography\MagicSquareEncryption\bin\Debug\MagicSquareEncryption.exe
+D:\Serious Projects\Cryptography\MagicSquareEncryption\bin\Debug\MagicSquareEncryption.pdb
+D:\Serious Projects\Cryptography\MagicSquareEncryption\obj\Debug\MagicSquareEncryption.csprojAssemblyReference.cache
+D:\Serious Projects\Cryptography\MagicSquareEncryption\obj\Debug\MagicSquareEncryption.exe
+D:\Serious Projects\Cryptography\MagicSquareEncryption\obj\Debug\MagicSquareEncryption.pdb
