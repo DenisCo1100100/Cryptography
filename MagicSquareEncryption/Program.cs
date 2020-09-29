@@ -9,6 +9,7 @@ namespace MagicSquareEncryption
     class Program
     {
         private static int[,] magicSquare;
+        private static char[,] SquareWithCipher;
 
         static void Main(string[] args)
         {
@@ -36,6 +37,7 @@ namespace MagicSquareEncryption
             // Шифровка
         }
 
+        #region Decryption
         private static void Decryption()
         {
 
@@ -46,24 +48,13 @@ namespace MagicSquareEncryption
             magicSquare = new int[size, size];
 
             FillingMagicSquare(size);
-        }
-
-        private static void FillingMagicSquare(int size)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                Console.WriteLine(i + "-строка");
-                for (int j = 0; j < size; j++)
-                {
-                    magicSquare[i, j] = Convert.ToInt32(Console.ReadLine());
-                }
-            }
+            WritingCipherInSquare(size, cipher);
         }
 
         private static int RequiredDimensionSquare(int cipher)
         {
             double size = 0;
-            int powNumber = 2;
+            int powNumber = 3;
 
             while (size < cipher)
             {
@@ -73,5 +64,36 @@ namespace MagicSquareEncryption
 
             return powNumber;
         }
+
+        private static void FillingMagicSquare(int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                Console.WriteLine(i + "-строка");
+                for (int j = 0; j < size; j++)
+                    magicSquare[i, j] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+
+        private static void WritingCipherInSquare(int size, string cipher)
+        {
+            SquareWithCipher = new char[size, size];
+            int indexSymbol = 0;
+
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                {
+                    if (indexSymbol <= cipher.Length)
+                    {
+                        SquareWithCipher[i, j] = cipher[indexSymbol];
+                        indexSymbol++;
+                    }
+                    else
+                    {
+                        SquareWithCipher[i, j] = ' ';
+                    }
+                }
+        }
+        #endregion
     }
 }
