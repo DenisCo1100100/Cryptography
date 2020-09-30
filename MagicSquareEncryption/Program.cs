@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace MagicSquareEncryption
 {
@@ -9,9 +11,29 @@ namespace MagicSquareEncryption
 
         static void Main(string[] args)
         {
-            Console.Write("Choose encryption or decryption (E/D): ");
-            string selectedOperation = Console.ReadLine();
-            VerificatOperations(selectedOperation);
+            try
+            {
+                string selectedOperation = "";
+
+                while (true)
+                {
+                    Console.Write("Choose encryption or decryption (E/D) or (End): ");
+                    selectedOperation = Console.ReadLine();
+
+                    if (selectedOperation == "End")
+                        break;
+
+                    VerificatOperations(selectedOperation);
+
+                    Console.WriteLine("Press the key to continue...");
+                    Console.ReadKey();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.ReadKey();
+            }
         }
 
         private static void VerificatOperations(string operation)
@@ -24,10 +46,105 @@ namespace MagicSquareEncryption
                 Decryption();
         }
 
+        #region Encryption
         private static void Encryption()
         {
-            // Шифровка
+            Console.Write("Enter the word to encrypt: ");
+            string cipher = Console.ReadLine();
+
+            string squareInLine = ReadingSquareFromFile(cipher.Length);
+            int size = RequiredDimensionSquare(squareInLine.Split().Length);
+
+            magicSquare = new int[size, size];
+            squareWithCipher = new char[size, size];
+            
+            FillingMagicSquare(size, squareInLine);
+            cipher = AddSpacesInCipher(cipher);
+            WritingCipherInSquare(cipher);
+            PrintCipherAndKey(size);
         }
+
+        private static string AddSpacesInCipher(string cipher)
+        {
+            while (cipher.Length < magicSquare.Length)
+            {
+                cipher += '_';
+            }
+
+            return cipher;
+        }
+
+        private static void FillingMagicSquare(int size, string squareInLine)
+        {
+            string[] squareNumbers = squareInLine.Split();
+            int indexSymbol = 0;
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    magicSquare[i, j] = Convert.ToInt32(squareNumbers[indexSymbol]);
+                    indexSymbol++;
+                }
+            }
+        }
+
+        private static string ReadingSquareFromFile(int desiredLength)
+        {
+            Random random = new Random();
+            string[] squareLines = File.ReadAllLines("MagicSquars.txt");
+            List<string> selectedSquare = new List<string>();
+
+            for (int i = 0; i < squareLines.Length; i++)
+            {
+                if (squareLines[i].Split().Length >= desiredLength)
+                {
+                    selectedSquare.Add(squareLines[i]);
+                }
+            }
+            
+            if (selectedSquare.Count == 0)
+            {
+                throw new Exception("The code is too long");
+            }
+
+            int randomIndex = random.Next(0, selectedSquare.Count);
+
+            return selectedSquare[randomIndex];
+        }
+
+        private static void WritingCipherInSquare(string cipher)
+        {
+            int size = squareWithCipher.GetLength(0);
+
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                {
+                    int indexSymbol = magicSquare[i, j] - 1;
+                    squareWithCipher[i, j] = cipher[indexSymbol]; //IndexOut
+                }
+        }
+
+        private static void PrintCipherAndKey(int size)
+        {
+            Console.WriteLine("Cipher:");
+            foreach (var symbol in squareWithCipher)
+            {
+                Console.Write(symbol);
+            }
+
+            Console.WriteLine("\n" + "Key:");
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(magicSquare[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+        }
+        #endregion
 
         #region Decryption
         private static void Decryption()
@@ -42,16 +159,14 @@ namespace MagicSquareEncryption
             FillingMagicSquare(size);
             WritingCipherInSquare(size, cipher);
             WritingOutWordFromSquare(size);
-
-            Console.ReadKey();
         }
 
-        private static int RequiredDimensionSquare(int cipher)
+        private static int RequiredDimensionSquare(int cipherLength)
         {
             double size = 0;
             int powNumber = 3;
 
-            while (size < cipher)
+            while (size < cipherLength)
             {
                 size = Math.Pow(powNumber, 2);
                 powNumber++;
@@ -86,7 +201,7 @@ namespace MagicSquareEncryption
                     }
                     else
                     {
-                        squareWithCipher[i, j] = ' ';
+                        squareWithCipher[i, j] = '_';
                     }
                 }
         }
@@ -109,6 +224,8 @@ namespace MagicSquareEncryption
 
                 charNumber++;
             }
+
+            Console.WriteLine();
         }
         #endregion
     }
