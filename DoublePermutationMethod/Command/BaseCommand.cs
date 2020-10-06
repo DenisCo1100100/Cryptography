@@ -10,6 +10,6 @@ namespace DoublePermutationMethod.Command
     {
         abstract public string Name { get; }
 
-
+        public abstract void Execute();
     }
 }

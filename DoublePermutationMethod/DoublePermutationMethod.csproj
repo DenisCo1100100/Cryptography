@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="Command\DecoderCubeCommand.cs" />
+    <Compile Include="Command\DecoderRandomCubeCommand.cs" />
+    <Compile Include="Command\EncoderCubeCommand.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
