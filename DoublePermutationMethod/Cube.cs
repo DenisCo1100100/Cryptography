@@ -12,6 +12,7 @@ namespace DoublePermutationMethod
         public int Size { get; private set; }
 
         public List<Cell> ListCels { get; private set; } = new List<Cell>();
+
         public Cube(int size)
         {
             Size = size;

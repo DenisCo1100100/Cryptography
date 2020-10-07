@@ -12,7 +12,12 @@ namespace DoublePermutationMethod.Command
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            int[,] key = new int[2, 4] {
+             { 2, 3, 0, 1},
+             { 3, 1, 2, 0} 
+            };
+
+            CubeCrypto.SetDecoded("КОЗИКДЕНИСВАСИЛЬ", key);
         }
     }
 }

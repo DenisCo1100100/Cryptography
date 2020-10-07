@@ -13,7 +13,20 @@ namespace DoublePermutationMethod
 
         public void SetDecoded(string message, int[,] key)
         {
-            //Кодирование с вводом ключа пользователем
+            int keyLength = key.Length;
+            int row = 0;
+            int col = 0;
+
+            foreach (var cell in Cube.ListCels)
+            {
+                cell.Row = key[row, col];
+                col++;
+
+                for (int i = 1; i < keyLength; i++)
+                {
+                    cell.Col = key[row, col];
+                }
+            }
         }
 
         public void GetDecoded(string message, int[,] key)
@@ -30,6 +43,7 @@ namespace DoublePermutationMethod
         {
             //Декодирование
         }
+
         public void GetEncoder(string message, int[,] key)
         {
             //Декодирование
