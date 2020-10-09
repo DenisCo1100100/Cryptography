@@ -11,8 +11,10 @@ namespace DoublePermutationMethod
     {
         static void Main(string[] args)
         {
-            BaseCommand command = new DecoderCubeCommand();
-            command.Execute();
+            BaseCommand commands = new DecoderCubeCommand();
+            var cubeCrypto = new CubeCrypto(new Cube(4));
+            commands.CubeCrypto = cubeCrypto;
+            commands.Execute();
         }
     }
 }
