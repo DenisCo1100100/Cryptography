@@ -50,6 +50,7 @@
     <Compile Include="Command\EncoderCubeCommand.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="CubeCrypto.cs" />
+    <Compile Include="CubeStringConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

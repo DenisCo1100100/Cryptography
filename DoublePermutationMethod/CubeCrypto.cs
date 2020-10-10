@@ -11,22 +11,25 @@ namespace DoublePermutationMethod
         public Cube Cube { get; set; }
         public CubeCrypto(Cube cube) => Cube = cube;
 
-        public void SetDecoded(string message, int[,] key)
+        public void SetDecoded(int[,] key)
         {
-            int keyLength = key.Length;
-            int row = 0;
-            int col = 0;
-
-            foreach (var cell in Cube.ListCels)
+            int size = key.Length / 2;
+            int cellIndex = 0;
+            for (int i = 0; i < size; i++)
             {
-                cell.Row = key[row, col];
-                col++;
-
-                for (int i = 1; i < keyLength; i++)
+                for (int j = 0; j < size; j++)
                 {
-                    cell.Col = key[row, col];
+                    Cube.ListCels[cellIndex].Col = i;
+                    Cube.ListCels[cellIndex].Row = j;
+                    cellIndex++;
                 }
             }
+
+            foreach (var item in Cube.ListCels)
+            {
+                Console.WriteLine(item.Col + " " + item.Row + " " + item.Symbol);
+            }
+            Console.ReadKey();
         }
 
         public void GetDecoded(string message, int[,] key)

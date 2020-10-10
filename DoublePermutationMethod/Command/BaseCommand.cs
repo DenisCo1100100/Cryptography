@@ -10,6 +10,7 @@ namespace DoublePermutationMethod.Command
     {
         abstract public string Name { get; }
         public CubeCrypto CubeCrypto { get; set; }
+        public CubeStringConverter CubeStringConverter { get; set; }
         public Cube Cube { get; set; }
         public abstract void Execute();
     }

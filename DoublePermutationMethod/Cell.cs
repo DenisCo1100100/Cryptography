@@ -10,11 +10,13 @@ namespace DoublePermutationMethod.Command
     {
         public int Row { get; set; }
         public int Col { get; set; }
+        public int Number { get; set; }
         public char Symbol { get; set; }
-        public Cell(int row, int col, char symbol = '_')
+        public Cell(int row, int col, int number = 0, char symbol = '_')
         {
             Row = row;
             Col = col;
+            Number = number;
             Symbol = symbol;
         }
     }

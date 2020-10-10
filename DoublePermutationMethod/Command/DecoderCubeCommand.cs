@@ -17,8 +17,10 @@ namespace DoublePermutationMethod.Command
              { 3, 1, 2, 0} 
             };
 
-            CubeCrypto.Cube = Cube;
-            CubeCrypto.SetDecoded("КОЗИКДЕНИСВАСИЛЬ", key);
+            Cube cube = CubeStringConverter.StringToCube("КОЗИКДЕНИСВАСИЛЬ", key);
+
+            CubeCrypto.Cube = cube;
+            CubeCrypto.SetDecoded(key);
         }
     }
 }
