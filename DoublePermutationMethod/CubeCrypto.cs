@@ -15,6 +15,7 @@ namespace DoublePermutationMethod
         {
             int size = key.Length / 2;
             int cellIndex = 0;
+
             for (int i = 0; i < size; i++)
             {
                 for (int j = 0; j < size; j++)
@@ -24,20 +25,33 @@ namespace DoublePermutationMethod
                     cellIndex++;
                 }
             }
-
-            foreach (var item in Cube.ListCels)
-            {
-                Console.WriteLine(item.Col + " " + item.Row + " " + item.Symbol);
-            }
-            Console.ReadKey();
         }
 
-        public void GetDecoded(string message, int[,] key)
+        public string GetDecoded(int[,] key)
         {
+            string cipher = "";
+            int size = key.Length / 2;
+            int col;
+            int row = 0;
 
+            for (int i = 0; i < 2; i++)
+            {
+                col = key[0, row];
+                for (int j = 0; j < size; j++)
+                {
+                    cipher += Cube.GetCellFromList(col, key[1, j]).Symbol;
+                }
+
+                row++;
+            }
+
+            Console.WriteLine(cipher);
+            Console.ReadKey();
+
+            return cipher;
         }
 
-        public void SetDecoded(string message)
+        public void GetDecoded(string message)
         {
             //Кодирование с рандомной генерацией ключа
         }

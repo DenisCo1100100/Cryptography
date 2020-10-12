@@ -22,6 +22,6 @@ namespace DoublePermutationMethod
                     ListCels.Add(new Cell(row, col));
         }
 
-        public Cell GetCellFromList(int row, int col) => ListCels.Find(cell => cell.Row == row && cell.Col == col);
+        public Cell GetCellFromList(int col, int row) => ListCels.Find(cell => cell.Row == row && cell.Col == col);
     }
 }

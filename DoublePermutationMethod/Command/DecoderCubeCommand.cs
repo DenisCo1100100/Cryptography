@@ -13,14 +13,15 @@ namespace DoublePermutationMethod.Command
         public override void Execute()
         {
             int[,] key = new int[2, 4] {
-             { 2, 3, 0, 1},
-             { 3, 1, 2, 0} 
+             { 3, 0, 2, 1},
+             { 2, 0, 3, 2} 
             };
 
-            Cube cube = CubeStringConverter.StringToCube("КОЗИКДЕНИСВАСИЛЬ", key);
+            Cube cube = CubeStringConverter.StringToCube("ПРИЛЕТАЮСЕДЬМОГО", key);
 
             CubeCrypto.Cube = cube;
             CubeCrypto.SetDecoded(key);
+            CubeCrypto.GetDecoded(key);
         }
     }
 }

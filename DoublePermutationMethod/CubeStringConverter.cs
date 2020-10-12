@@ -16,7 +16,7 @@ namespace DoublePermutationMethod
             for (int i = 0; i < message.Length; i++)
             {
                 cube.ListCels[i].Symbol = message[i];
-            }
+            }   
 
             return cube;
         }
