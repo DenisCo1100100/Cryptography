@@ -25,31 +25,19 @@ namespace DoublePermutationMethod
                     cellIndex++;
                 }
             }
-
-            foreach (var item in Cube.ListCels)
-            {
-                Console.WriteLine(item.Col + " " + item.Row);
-            }
-
-            Console.ReadLine();
         }
 
         public string GetDecoded(int[,] key)
         {
             string cipher = "";
             int size = key.Length / 2;
-            int col;
-            int row = 0;
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < size; i++)
             {
-                col = key[0, row];
                 for (int j = 0; j < size; j++)
                 {
-                    cipher += Cube.GetCellFromList(col, key[1, j]).Symbol;
+                    cipher += Cube.GetCellFromList(i, j).Symbol;
                 }
-
-                row++;
             }
 
             Console.WriteLine(cipher);
