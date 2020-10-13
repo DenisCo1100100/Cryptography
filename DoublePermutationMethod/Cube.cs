@@ -16,10 +16,16 @@ namespace DoublePermutationMethod
         public Cube(int size)
         {
             Size = size;
+            int number = 0;
 
-            for (int row = 0; row < Size; row++)
-                for (int col = 0; col < Size; col++)
-                    ListCels.Add(new Cell(row, col));
+            for (int col = 0; col < Size; col++)
+            {
+                for (int row = 0; row < Size; row++)
+                {
+                    ListCels.Add(new Cell(col, row, number));
+                    number++;
+                }
+            }
         }
 
         public Cell GetCellFromList(int col, int row) => ListCels.Find(cell => cell.Row == row && cell.Col == col);

@@ -13,8 +13,8 @@ namespace DoublePermutationMethod.Command
         public override void Execute()
         {
             int[,] key = new int[2, 4] {
-             { 3, 0, 2, 1},
-             { 2, 0, 3, 2} 
+             { 2, 0, 3, 2},
+             { 3, 0, 2, 1} 
             };
 
             Cube cube = CubeStringConverter.StringToCube("ПРИЛЕТАЮСЕДЬМОГО", key);

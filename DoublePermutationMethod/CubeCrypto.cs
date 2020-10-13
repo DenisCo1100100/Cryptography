@@ -20,11 +20,18 @@ namespace DoublePermutationMethod
             {
                 for (int j = 0; j < size; j++)
                 {
-                    Cube.ListCels[cellIndex].Col = i;
-                    Cube.ListCels[cellIndex].Row = j;
+                    Cube.ListCels[cellIndex].Col = key[0, i];
+                    Cube.ListCels[cellIndex].Row = key[1, j];
                     cellIndex++;
                 }
             }
+
+            foreach (var item in Cube.ListCels)
+            {
+                Console.WriteLine(item.Col + " " + item.Row);
+            }
+
+            Console.ReadLine();
         }
 
         public string GetDecoded(int[,] key)
