@@ -11,17 +11,51 @@ namespace DoublePermutationMethod.Command
         public override string Name => "decod";
 
         public override void Execute()
-        {
-            int[,] key = new int[2, 4] {
-             { 2, 0, 3, 1},
-             { 3, 0, 2, 1} 
-            };
+        {            
+            int[,] key = EnterSizeAndKey();
 
-            Cube cube = CubeStringConverter.StringToCube("ПРИЛЕТАЮСЕДЬМОГО", key);
+            Console.Write("Enter your message: ");
+            string message = Console.ReadLine();
+            while (message.Length > (key.Length * key.Length))
+            {
+                Console.WriteLine("Message has very big length. Try again!");
+                message = Console.ReadLine();
+            }
+
+            Cube cube = CubeStringConverter.StringToCube(message, key);
 
             CubeCrypto.Cube = cube;
             CubeCrypto.SetDecoded(key);
-            CubeCrypto.GetDecoded(key);
+
+            Console.WriteLine("Decoded message: ");
+            Console.WriteLine(CubeCrypto.GetDecoded(key));
+            Console.ReadKey();
+        }
+
+        private int[,] EnterSizeAndKey()
+        {
+            Console.Write("Enter the size of the square: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter key-col separated by space:");
+            string[] col = Console.ReadLine().Split();
+
+            Console.WriteLine("Enter key-row separated by space:");
+            string[] row = Console.ReadLine().Split();
+
+            if (col.Length == size && row.Length == size)
+            {
+                int[,] key = new int[2, size];
+                for (int i = 0; i < size; i++)
+                {
+                    key[0, i] = Convert.ToInt32(col[i].ToString()) - 1;
+                    key[1, i] = Convert.ToInt32(row[i].ToString()) - 1;
+                }
+
+                return key;
+            }
+
+            throw new Exception("Invalid key length");
         }
     }
 }

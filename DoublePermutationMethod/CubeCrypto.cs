@@ -20,8 +20,8 @@ namespace DoublePermutationMethod
             {
                 for (int j = 0; j < size; j++)
                 {
-                    Cube.ListCels[cellIndex].Col = key[0, i];
-                    Cube.ListCels[cellIndex].Row = key[1, j];
+                    Cube.ListCels[cellIndex].Col = key[1, i];
+                    Cube.ListCels[cellIndex].Row = key[0, j];
                     cellIndex++;
                 }
             }
@@ -39,9 +39,6 @@ namespace DoublePermutationMethod
                     cipher += Cube.GetCellFromList(i, j).Symbol;
                 }
             }
-
-            Console.WriteLine(cipher);
-            Console.ReadKey();
 
             return cipher;
         }

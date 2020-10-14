@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CubePrinter.cs" />
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Command\DecoderCubeCommand.cs" />
