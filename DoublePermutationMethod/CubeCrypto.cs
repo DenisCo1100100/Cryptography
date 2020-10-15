@@ -11,6 +11,7 @@ namespace DoublePermutationMethod
         public Cube Cube { get; set; }
         public CubeCrypto(Cube cube) => Cube = cube;
 
+        #region DECODER
         public void SetDecoded(int[,] key)
         {
             int size = key.Length / 2;
@@ -27,10 +28,10 @@ namespace DoublePermutationMethod
             }
         }
 
-        public string GetDecoded(int[,] key)
+        public string GetDecoded()
         {
             string cipher = "";
-            int size = key.Length / 2;
+            int size = Cube.Size;
 
             for (int i = 0; i < size; i++)
             {
@@ -42,11 +43,7 @@ namespace DoublePermutationMethod
 
             return cipher;
         }
-
-        public void GetDecoded(string message)
-        {
-            //Кодирование с рандомной генерацией ключа
-        }
+        #endregion
 
         public void SetEncoder(string message, int[,] key)
         {

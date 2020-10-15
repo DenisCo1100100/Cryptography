@@ -11,7 +11,7 @@ namespace DoublePermutationMethod.Command
         public override string Name => "decod";
 
         public override void Execute()
-        {            
+        {
             int[,] key = EnterSizeAndKey();
 
             Console.Write("Enter your message: ");
@@ -27,8 +27,8 @@ namespace DoublePermutationMethod.Command
             CubeCrypto.Cube = cube;
             CubeCrypto.SetDecoded(key);
 
-            Console.WriteLine("Decoded message: ");
-            Console.WriteLine(CubeCrypto.GetDecoded(key));
+            Console.Write("Decoded message: ");
+            Console.WriteLine(CubeCrypto.GetDecoded());
             Console.ReadKey();
         }
 
