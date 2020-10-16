@@ -37,32 +37,52 @@ namespace DoublePermutationMethod.Command
         private int[,] GenerateRandomKey(int size)
         {
             Random random = new Random();
+            int[] col = KeyPartGeneration(size, random);
+            int[] row = KeyPartGeneration(size, random);
+
             int[,] key = new int[2, size];
-            int[] genNumber = new int[size];
-            int randNumb;
-
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < size; j++)
-                {
-                    for (int f = 0; f < genNumber.Length; f++)
-                    {
-                        randNumb = random.Next(0, size);
-                        if (randNumb == genNumber[f])
-                        {
-                            break; // Дописатьб
-                        }
+                key[0, i] = col[i];
+                key[1, i] = row[i];
+            }
+            
+            return key;
+        }
 
-                        genNumber[f] = randNumb;
-                        key[i, j] = randNumb;
+        private int[] KeyPartGeneration(int size, Random random)
+        {
+            int[] part = new int[size];
+            bool flag;
+            int keyIndex = 1;
+
+            while (size != keyIndex)
+            {
+                flag = true;
+                int rndNumb = random.Next(1, size);
+
+                for (int i = 0; i < part.Length; i++)
+                {
+                    if (part[i] == rndNumb)
+                    {
+                        flag = false;
                     }
-                    Console.Write(key[i, j] + " ");
                 }
 
-                Console.WriteLine("-");
+                if (flag)
+                {
+                    part[keyIndex] = rndNumb;
+                    keyIndex++;
+                }
             }
 
-            return key;
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write(part[i] + " ");
+            }
+            Console.WriteLine();
+
+            return part;
         }
     }
 }
