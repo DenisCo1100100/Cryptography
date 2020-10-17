@@ -9,15 +9,37 @@ namespace DoublePermutationMethod
 {
     class Program
     {
+        private static List<BaseCommand> commands = new List<BaseCommand>()
+        {
+            new DecoderCubeCommand(),
+            new DecoderRandomCubeCommand()
+        };
+
         static void Main(string[] args)
         {
-            BaseCommand commands = new DecoderCubeCommand();
-            BaseCommand command = new DecoderRandomCubeCommand();
             var cubeCrypto = new CubeCrypto(new Cube(4));
             var cubeStringConverter = new CubeStringConverter();
-            command.CubeStringConverter = cubeStringConverter;
-            command.CubeCrypto = cubeCrypto;
-            command.Execute();
+            commands.ForEach(cmd =>
+            {
+                cmd.CubeCrypto = cubeCrypto;
+                cmd.CubeStringConverter = cubeStringConverter;
+            });
+
+            Console.WriteLine("#################################");
+            Console.WriteLine("# DoublePermutation by DenKodec #");
+            Console.WriteLine("#################################");
+            Console.WriteLine();
+
+            while (true)
+            {
+                Console.Write("=> ");
+                string strCommand = Console.ReadLine();
+                BaseCommand command = commands.Find(cmd => cmd.Name == strCommand);
+                if (command != null)
+                    command.Execute();
+                else
+                    Console.WriteLine("This command not found");
+            }
         }
     }
 }

@@ -64,9 +64,7 @@ namespace DoublePermutationMethod.Command
                 for (int i = 0; i < part.Length; i++)
                 {
                     if (part[i] == rndNumb)
-                    {
                         flag = false;
-                    }
                 }
 
                 if (flag)
@@ -75,12 +73,6 @@ namespace DoublePermutationMethod.Command
                     keyIndex++;
                 }
             }
-
-            for (int i = 0; i < size; i++)
-            {
-                Console.Write(part[i] + " ");
-            }
-            Console.WriteLine();
 
             return part;
         }
