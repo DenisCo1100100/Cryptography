@@ -12,7 +12,8 @@ namespace DoublePermutationMethod
         private static List<BaseCommand> commands = new List<BaseCommand>()
         {
             new DecoderCubeCommand(),
-            new DecoderRandomCubeCommand()
+            new DecoderRandomCubeCommand(),
+            new HelpCommand()
         };
 
         static void Main(string[] args)
@@ -36,9 +37,15 @@ namespace DoublePermutationMethod
                 string strCommand = Console.ReadLine();
                 BaseCommand command = commands.Find(cmd => cmd.Name == strCommand);
                 if (command != null)
+                {
                     command.Execute();
+                    Console.WriteLine();
+                }
                 else
+                {
                     Console.WriteLine("This command not found");
+                    Console.WriteLine("Enter <help> to get information about commands");
+                }
             }
         }
     }
