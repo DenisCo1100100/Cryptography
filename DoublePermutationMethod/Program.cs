@@ -26,9 +26,9 @@ namespace DoublePermutationMethod
                 cmd.CubeStringConverter = cubeStringConverter;
             });
 
-            Console.WriteLine("#################################");
-            Console.WriteLine("# DoublePermutation by DenKodec #");
-            Console.WriteLine("#################################");
+            Console.WriteLine("###################################");
+            Console.WriteLine("## DoublePermutation by DenKodec ##");
+            Console.WriteLine("###################################");
             Console.WriteLine();
 
             while (true)
