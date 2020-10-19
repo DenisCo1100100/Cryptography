@@ -11,8 +11,8 @@ namespace DoublePermutationMethod
     {
         private static List<BaseCommand> commands = new List<BaseCommand>()
         {
-            new DecoderCubeCommand(),
-            new DecoderRandomCubeCommand(),
+            new EncoderCubeCommand(),
+            new EncoderRandomCubeCommand(),
             new HelpCommand()
         };
 

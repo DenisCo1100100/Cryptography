@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\DecoderCubeCommand.cs" />
     <Compile Include="Command\HelpCommand.cs" />
     <Compile Include="CubePrinter.cs" />
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Cell.cs" />
-    <Compile Include="Command\DecoderCubeCommand.cs" />
-    <Compile Include="Command\DecoderRandomCubeCommand.cs" />
+    <Compile Include="Command\EncoderRandomCubeCommand.cs" />
     <Compile Include="Command\EncoderCubeCommand.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="CubeCrypto.cs" />

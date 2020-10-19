@@ -31,7 +31,9 @@ namespace PaswordGenerator
                 answerUser = Console.ReadLine();
                 bool isSing = IsSingPassword(answerUser);
 
-                GeneratRandomSymbols(isRepiting, isSing);
+
+                Random random = new Random();
+                GeneratRandomSymbols(isRepiting, isSing, random);
 
                 generatedPassword = AddHyphen();
                 Console.WriteLine("Generated password: " + generatedPassword);
@@ -45,9 +47,8 @@ namespace PaswordGenerator
             Console.ReadKey();
         }
 
-        private static void GeneratRandomSymbols(bool repitingSybol, bool singPassword)
+        private static void GeneratRandomSymbols(bool repitingSybol, bool singPassword, Random random)
         {
-            Random random = new Random();
             int typeSymbol = -1;
 
             while (generatedPassword.Length != PASSWORD_LENGTH)

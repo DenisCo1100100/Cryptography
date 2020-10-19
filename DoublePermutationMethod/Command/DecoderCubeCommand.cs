@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DoublePermutationMethod.Command
 {
-    class DecoderCubeCommand
+    class DecoderCubeCommand : BaseCommand
     {
+        public override string Name => "decode";
+
+        public override void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

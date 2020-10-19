@@ -10,3 +10,9 @@ D:\Serious Projects\All-tasks\PaswordGenerator\bin\Debug\PaswordGenerator.pdb
 D:\Serious Projects\All-tasks\PaswordGenerator\obj\Debug\PaswordGenerator.csprojAssemblyReference.cache
 D:\Serious Projects\All-tasks\PaswordGenerator\obj\Debug\PaswordGenerator.exe
 D:\Serious Projects\All-tasks\PaswordGenerator\obj\Debug\PaswordGenerator.pdb
+D:\Serious Projects\Cryptography\PaswordGenerator\bin\Debug\PaswordGenerator.exe.config
+D:\Serious Projects\Cryptography\PaswordGenerator\bin\Debug\PaswordGenerator.exe
+D:\Serious Projects\Cryptography\PaswordGenerator\bin\Debug\PaswordGenerator.pdb
+D:\Serious Projects\Cryptography\PaswordGenerator\obj\Debug\PaswordGenerator.csprojAssemblyReference.cache
+D:\Serious Projects\Cryptography\PaswordGenerator\obj\Debug\PaswordGenerator.exe
+D:\Serious Projects\Cryptography\PaswordGenerator\obj\Debug\PaswordGenerator.pdb

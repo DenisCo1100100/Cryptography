@@ -12,9 +12,9 @@ namespace DoublePermutationMethod.Command
 
         public override void Execute()
         {
-            Console.WriteLine("<decod> - Command to encrypt a word with a custom key");
-            Console.WriteLine("<decodrandom> - Command to encrypt a word with a random key");
-            Console.WriteLine("<encode> - Command for decrypting a word");
+            Console.WriteLine("<encode> - Command to encrypt a sentence with a custom key");
+            Console.WriteLine("<encoderandom> - Command to encrypt a sentence with a random key");
+            Console.WriteLine("<decode> - Command for decrypting a sentence with a custom key");
         }
     }
 }

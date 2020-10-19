@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoublePermutationMethod.Command
 {
-    class DecoderRandomCubeCommand : BaseCommand
+    class EncoderRandomCubeCommand : BaseCommand
     {
         public override string Name => "decodrandom";
 
