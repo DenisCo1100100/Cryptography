@@ -45,15 +45,15 @@
   <ItemGroup>
     <Compile Include="Command\DecoderCubeCommand.cs" />
     <Compile Include="Command\HelpCommand.cs" />
-    <Compile Include="CubePrinter.cs" />
     <Compile Include="Command\BaseCommand.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="Command\EncoderRandomCubeCommand.cs" />
     <Compile Include="Command\EncoderCubeCommand.cs" />
     <Compile Include="Cube.cs" />
     <Compile Include="CubeCrypto.cs" />
-    <Compile Include="CubeStringConverter.cs" />
+    <Compile Include="CubeToStringConverter.cs" />
     <Compile Include="Key.cs" />
+    <Compile Include="KeyGenerator.cs" />
     <Compile Include="KeyStringConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

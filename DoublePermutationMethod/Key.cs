@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoublePermutationMethod
 {
@@ -10,7 +6,8 @@ namespace DoublePermutationMethod
     {
         public int[] RowHeader { get; set; }
         public int[] ColHeader { get; set; }
-        
+        public int Length { get => RowHeader.Length + ColHeader.Length; }
+        public int LengthHeder { get => RowHeader.Length; }
         public int Size => ColHeader.Length;
 
         public Key(int[] rowHeader, int[] colHeader)

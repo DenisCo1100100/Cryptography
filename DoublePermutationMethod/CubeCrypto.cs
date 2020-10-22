@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DoublePermutationMethod
+﻿namespace DoublePermutationMethod
 {
     class CubeCrypto
     {
@@ -12,7 +6,7 @@ namespace DoublePermutationMethod
         public CubeCrypto(Cube cube) => Cube = cube;
 
         #region DECODER
-        public void SetDecoded(int[,] key)
+        public void SetDecoded(Key key)
         {
             int size = key.Length / 2;
             int cellIndex = 0;
@@ -21,8 +15,8 @@ namespace DoublePermutationMethod
             {
                 for (int j = 0; j < size; j++)
                 {
-                    Cube.ListCels[cellIndex].Col = key[1, i];
-                    Cube.ListCels[cellIndex].Row = key[0, j];
+                    Cube.ListCels[cellIndex].Col = key.ColHeader[i];
+                    Cube.ListCels[cellIndex].Row = key.RowHeader[j];
                     cellIndex++;
                 }
             }

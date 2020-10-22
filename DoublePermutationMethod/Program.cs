@@ -1,9 +1,6 @@
 ﻿using DoublePermutationMethod.Command;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DoublePermutationMethod
 {
@@ -11,6 +8,7 @@ namespace DoublePermutationMethod
     {
         private static List<BaseCommand> commands = new List<BaseCommand>()
         {
+            new DecoderCubeCommand(),
             new EncoderCubeCommand(),
             new EncoderRandomCubeCommand(),
             new HelpCommand()
@@ -19,11 +17,11 @@ namespace DoublePermutationMethod
         static void Main(string[] args)
         {
             var cubeCrypto = new CubeCrypto(new Cube(4));
-            var cubeStringConverter = new CubeStringConverter();
+            var cubeToStringConverter = new CubeToStringConverter();
             commands.ForEach(cmd =>
             {
                 cmd.CubeCrypto = cubeCrypto;
-                cmd.CubeStringConverter = cubeStringConverter;
+                cmd.CubeToStringConverter = cubeToStringConverter;
             });
 
             Console.WriteLine("###################################");
