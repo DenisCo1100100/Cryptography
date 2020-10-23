@@ -23,10 +23,10 @@ namespace DoublePermutationMethod.Command
             Cube cube = CubeToStringConverter.StringToCube(message, size);
 
             CubeCrypto.Cube = cube;
-            CubeCrypto.SetDecoded(key);
+            CubeCrypto.SetEncode(key);
 
             Console.Write("Decoded message: ");
-            Console.WriteLine(CubeCrypto.GetDecoded());
+            Console.WriteLine(CubeCrypto.GetEncode());
             KeyStringConverter.PrintKey(key);
             Console.ReadKey();
         }

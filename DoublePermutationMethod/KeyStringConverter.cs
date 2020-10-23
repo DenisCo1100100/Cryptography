@@ -11,7 +11,6 @@ namespace DoublePermutationMethod
             string[] row = rowHeder.Split();
             string[] col = colHeder.Split();
 
-
             for (int i = 0; i < Key.LengthHeder; i++)
             {
                 Key.ColHeader[i] = Convert.ToInt32(col[i].ToString()) - 1;

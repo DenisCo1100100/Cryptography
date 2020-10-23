@@ -1,12 +1,13 @@
-﻿namespace DoublePermutationMethod
+﻿using System;
+
+namespace DoublePermutationMethod
 {
     class CubeCrypto
     {
         public Cube Cube { get; set; }
         public CubeCrypto(Cube cube) => Cube = cube;
 
-        #region DECODER
-        public void SetDecoded(Key key)
+        public void SetEncode(Key key)
         {
             int size = key.Length / 2;
             int cellIndex = 0;
@@ -22,7 +23,7 @@
             }
         }
 
-        public string GetDecoded()
+        public string GetEncode()
         {
             string cipher = "";
             int size = Cube.Size;
@@ -37,16 +38,16 @@
 
             return cipher;
         }
-        #endregion
 
-        public void SetEncoder(string message, int[,] key)
+        public void GetDecode(Key key)
         {
-            //Декодирование
-        }
-
-        public void GetEncoder(string message, int[,] key)
-        {
-            //Декодирование
+            foreach (var row in key.RowHeader)
+            {
+                foreach (var col in key.ColHeader)
+                {
+                    Console.Write(Cube.GetCellFromList(row, col).Symbol);
+                }
+            }
         }
     }
 }
