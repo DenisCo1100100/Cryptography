@@ -8,7 +8,16 @@ namespace DoublePermutationMethod.Command
 
         public override void Execute()
         {
+            Console.Write("Enter the size of the square: ");
+            int size = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine("Enter key-col separated by space:");
+            string col = Console.ReadLine();
+
+            Console.WriteLine("Enter key-row separated by space:");
+            string row = Console.ReadLine();
+
+            Key key = KeyStringConverter.ConvertStringsToKey(row, col);
 
             Console.Write("Enter your message: ");
             string message = Console.ReadLine();
@@ -18,7 +27,7 @@ namespace DoublePermutationMethod.Command
                 message = Console.ReadLine();
             }
 
-            Cube cube = CubeStringConverter.StringToCube(message, key);
+            Cube cube = CubeToStringConverter.StringToCube(message, size);
 
             CubeCrypto.Cube = cube;
             CubeCrypto.SetDecoded(key);

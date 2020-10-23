@@ -4,7 +4,7 @@ namespace DoublePermutationMethod.Command
 {
     class EncoderRandomCubeCommand : BaseCommand
     {
-        public override string Name => "decodrandom";
+        public override string Name => "encodeRND";
 
         public override void Execute()
         {
@@ -27,6 +27,7 @@ namespace DoublePermutationMethod.Command
 
             Console.Write("Decoded message: ");
             Console.WriteLine(CubeCrypto.GetDecoded());
+            KeyStringConverter.PrintKey(key);
             Console.ReadKey();
         }
     }

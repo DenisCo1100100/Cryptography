@@ -19,5 +19,18 @@ namespace DoublePermutationMethod
 
             return Key;
         }
+
+        public void PrintKey(Key key)
+        {
+            Console.WriteLine("Key: ");
+
+            for (int i = 0; i < key.LengthHeder; i++)
+                Console.Write(key.RowHeader[i] + " ");
+
+            Console.WriteLine();
+
+            for (int i = 0; i < key.LengthHeder; i++)
+                Console.Write(key.ColHeader[i] + " ");
+        }
     }
 }

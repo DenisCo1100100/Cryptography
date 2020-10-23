@@ -18,10 +18,14 @@ namespace DoublePermutationMethod
         {
             var cubeCrypto = new CubeCrypto(new Cube(4));
             var cubeToStringConverter = new CubeToStringConverter();
+            var keyStringConverter = new KeyStringConverter();
+            var keyGenerator = new KeyGenerator();
             commands.ForEach(cmd =>
             {
                 cmd.CubeCrypto = cubeCrypto;
                 cmd.CubeToStringConverter = cubeToStringConverter;
+                cmd.KeyGenerator = keyGenerator;
+                cmd.KeyStringConverter = keyStringConverter;
             });
 
             Console.WriteLine("###################################");
