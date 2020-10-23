@@ -17,7 +17,9 @@ namespace DoublePermutationMethod.Command
             Console.WriteLine("Enter key-row separated by space:");
             string row = Console.ReadLine();
 
-            Key key = KeyStringConverter.ConvertStringsToKey(row, col);
+            Key key = new Key(size);
+            KeyStringConverter.Key = key;
+            key = KeyStringConverter.ConvertStringsToKey(row, col);
 
             Console.Write("Enter your message: ");
             string message = Console.ReadLine();

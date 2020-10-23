@@ -11,10 +11,11 @@ namespace DoublePermutationMethod
             string[] row = rowHeder.Split();
             string[] col = colHeder.Split();
 
-            for (int i = 0; i < rowHeder.Length; i++)
+
+            for (int i = 0; i < Key.LengthHeder; i++)
             {
-                Key.RowHeader[i] = Convert.ToInt32(row[i].ToString());
-                Key.ColHeader[i] = Convert.ToInt32(col[i].ToString());
+                Key.ColHeader[i] = Convert.ToInt32(col[i].ToString()) - 1;
+                Key.RowHeader[i] = Convert.ToInt32(row[i].ToString()) - 1;
             }
 
             return Key;

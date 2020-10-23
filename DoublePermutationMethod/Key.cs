@@ -10,6 +10,12 @@ namespace DoublePermutationMethod
         public int LengthHeder { get => RowHeader.Length; }
         public int Size => ColHeader.Length;
 
+        public Key(int size)
+        {
+            RowHeader = new int[size];
+            ColHeader = new int[size];
+        }
+
         public Key(int[] rowHeader, int[] colHeader)
         {
             if (rowHeader.Length != colHeader.Length)
